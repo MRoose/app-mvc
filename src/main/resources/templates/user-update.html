@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update-User</title>
+    <style>
+th, td {
+  padding: 5px;
+}
+
+td span {
+  font-size: 90%;
+  font-style: italic;
+  color: red;
+}
+
+.error {
+  color: red;
+  font-style: italic;
+}
+    </style>
+</head>
+<body>
+<div>
+    <form th:method="POST" th:action="@{/user/update}" th:object="${user}">
+        <table border="2">
+            <tr>
+                <td>ФИО</td>
+                <td><input type="text" th:field="*{fio}" th:required="required" th:value="${fio}"></td>
+            </tr>
+            <tr>
+                <td>Город</td>
+                <td><input type="text" th:field="*{city}" th:required="required" th:value="${city}"></td>
+            </tr>
+            <tr>
+                <td>Должность</td>
+                <td><input type="text" th:field="*{position}" th:required="required" th:value="${position}"></td>
+            </tr>
+            <tr>
+                <td>Зарплата</td>
+                <td><input type="number" th:field="*{salary}" th:required="required" th:value="${salary}"></td>
+            </tr>
+            <tr>
+                <td>Возраст</td>
+                <td><input type="number" th:field="*{age}" th:required="required" th:value="${age}"></td>
+            </tr>
+            <tr>
+                <td>Стаж</td>
+                <td><input type="number" th:field="*{experience}" th:required="required" th:value="${experience}"></td>
+            </tr>
+            <tr>
+                <td>Дата трудоустройства</td>
+                <td><input type="date" th:field="*{employmentDate}" th:required="required" th:value="${employmentDate}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Обновить"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <form th:method="GET" th:action="@{/user/info}">
+        <button type="submit" name="submit" value="value" class="link-button">Отмена</button>
+    </form>
+</div>
+</body>
+</html>

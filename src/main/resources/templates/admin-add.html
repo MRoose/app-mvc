@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <style>
+         th, td {
+         padding: 5px;
+         }
+         td span  {
+         font-size:90%;
+         font-style: italic;
+         color: red;
+         }
+         .error {
+         color: red;
+         font-style: italic;
+         }
+    </style>
+</head>
+<body>
+<h2>Добавление пользователя</h2>
+<div>
+    <form th:method="POST" th:action="@{/admin/add}">
+        <table border="2">
+            <tr>
+                <td>Логин</td>
+                <td><input type="text" th:name="username" th:required="required" th:autofocus="autofocus"></td>
+            </tr>
+            <tr>
+                <td>Пароль</td>
+                <td><input type="text" th:name="password" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Роль</td>
+                <td><input type="text" th:name="role" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>ФИО</td>
+                <td><input type="text" th:name="fio" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Город</td>
+                <td><input type="text" th:name="city" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Должность</td>
+                <td><input type="text" th:name="position" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Зарплата</td>
+                <td><input type="number" th:name="salary" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Возраст</td>
+                <td><input type="number" th:name="age" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Стаж</td>
+                <td><input type="number" th:name="experience" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>Дата трудоустройства</td>
+                <td><input type="date" th:name="employmentDate" th:required="required"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Добавить"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <form th:method="GET" th:action="@{/admin/list}">
+        <button type="submit" name="submit" value="value" class="link-button">Отмена</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+    <style>
+th, td {
+  padding: 5px;
+}
+
+td span {
+  font-size: 90%;
+  font-style: italic;
+  color: red;
+}
+
+.error {
+  color: red;
+  font-style: italic;
+}
+    </style>
+</head>
+<body>
+<table border="2">
+    <tr>
+        <td>Логин</td>
+        <td><input type="text" th:value="${user.username}" readonly></td>
+    </tr>
+    <tr>
+        <td>ФИО</td>
+        <td><input type="text" th:value="${user.fio}" readonly></td>
+    </tr>
+    <tr>
+        <td>Город</td>
+        <td><input type="text" th:value="${user.city}" readonly></td>
+    </tr>
+    <tr>
+        <td>Должность</td>
+        <td><input type="text" th:value="${user.position}" readonly></td>
+    </tr>
+    <tr>
+        <td>Зарплата</td>
+        <td><input type="number" th:value="${user.salary}" readonly></td>
+    </tr>
+    <tr>
+        <td>Возраст</td>
+        <td><input type="number" th:value="${user.age}" readonly></td>
+    </tr>
+    <tr>
+        <td>Стаж</td>
+        <td><input type="number" th:value="${user.experience}" readonly></td>
+    </tr>
+    <tr>
+        <td>Дата трудоустройства</td>
+        <td><input type="date" th:value="${user.employmentDate}" readonly></td>
+    </tr>
+</table>
+<br>
+<form th:method="GET" th:action="@{/user/update}">
+    <button type="submit" name="submit" value="value" class="link-button">Изменить данные</button>
+</form>
+<br>
+<form th:method="POST" th:action="@{/user/delete}">
+    <button type="submit" name="submit" value="value" class="link-button">Удалить профиль</button>
+</form>
+</body>
+</html>
